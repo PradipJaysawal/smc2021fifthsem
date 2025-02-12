@@ -21,6 +21,8 @@ Route::get('/',[PagesController::class,'home'])->name('home');
 Route::get('/about',[PagesController::class,'about'])->name('about');
 Route::get('/contact',[PagesController::class,'contact'])->name('contact');
 Route::get('/viewpackage/{id}',[pagescontroller::class,'viewpackage'])->name('viewpackage');
+Route::get('/search',[PagesController::class,'search'])->name('search');
+
 
 Route::middleware(['auth'])->group(function(){
 Route::get('/bookpackage/{id}',[pagescontroller::class,'bookpackage'])->name('bookpackage');

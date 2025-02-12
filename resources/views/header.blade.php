@@ -17,6 +17,13 @@
     @include('layouts.alert')
     <nav class="flex px-20 py-2 bg-white justify-between items-center shadow-lg sticky top-0 z-30">
         <img src="{{asset('logo/event2.png')}}" alt="" class="h-16">
+        {{---------------------- search button -------------------------------------------------------}}
+        <form action="{{route('search')}}" method="GET" class="flex-1 justify-center flex">
+            <input type="search" class="border border-gray-200 p-2 w-1/2 rounded-l-lg" placeholder="Search Any Package">
+            <button type="submit" class="bg-blue-600 text-white rounded-r-lg">
+                <i class="ri-search-line p-2 px-4"></i>
+            </button>
+        </form>
         <div class="flex gap-5">
             <a href="{{route('home')}}">Home</a>
             <a href="{{route('about')}}">About</a>

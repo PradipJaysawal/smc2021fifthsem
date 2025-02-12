@@ -11,9 +11,22 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories=Category::orderBy('priority')->get();
-        return view('category.index',compact('categories'));
+        $categories=Category::all();
+        for($i=0;$i<count($categories);$i++)
+        {
+            for($j=0;$j<count($categories)-$i-1;$j++)
+            {
+                if($categories[$j]->priority>$categories[$j+1]->priority)
+                {
+                    $temp = $categories[$j];
+                    $categories[$j] = $categories[$j+1];
+                    $categories[$j+1] = $temp;
+                }
+            }
+        }
+         return view('category.index',compact('categories'));
     }
+    
     public function create()
     {
         return view('category.create');
